@@ -28,26 +28,27 @@ const decodeMessage = (suspect) => {
     .join("");
 };
 
+const clickHandler = (event) => {
+  const guess = prompt("type the guest's name").toLowerCase();
+  if (guess !== event.target.id) {
+    alert("that is incorrect!");
+    return;
+  }
+
+  if (guess.charAt(0) !== "k") {
+    alert("correct! but they are not the thief.");
+  } else {
+    alert("you've solved the mystery!");
+  }
+
+  message.innerHTML = decodeMessage(guess);
+};
+
 const buttons = document.querySelectorAll("button");
-const message = document.querySelector("#message");
+const message = document.querySelector("[data-message]");
 
 buttons.forEach((button) => {
-  button.addEventListener("click", (event) => {
-    const guess = prompt("type the guest's name").toLowerCase();
-
-    if (guess != event.target.id) {
-      alert("that is incorrect!");
-      return;
-    }
-
-    if (guess.charAt(0) !== "k") {
-      alert("correct! but they are not the thief.");
-    } else {
-      alert("you've solved the mystery!");
-    }
-
-    message.innerHTML = decodeMessage(guess);
-  });
+  button.addEventListener("click", clickHandler);
 });
 
 message.innerHTML = codedMessage;
