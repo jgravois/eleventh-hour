@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+  <h2>who stole the feast?</h2>
   <button id="horace">🐘</button>
   <button id="maxwell">🐯</button>
   <button id="??">🦢</button>
@@ -16,8 +17,23 @@
   <button id="alexandra">🐈</button>
   <button id="eric">🦓</button>
   <button id="kilroy">🐁</button>
-  <button id="sam">🐊</button>
+  <button id="sam">🐊</button> 
   <p data-message></p>
+  <!-- begin AI slop -->
+  <button class="info__btn">&#9432;</button>
+  <!-- Modal overlay -->
+  <div class="info__modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="info__backdrop" data-backdrop></div>
+    <div class="info__panel" role="document">
+      <button class="info__close" aria-label="close info modal">✕</button>
+      <div class="info__content">
+        <h2>what is this?</h2>
+        <p>as a kid i read <a href="https://en.wikipedia.org/wiki/The_Eleventh_Hour_(book)"><u>The Eleventh Hour</u></a> <i>many</i> times.</p>
+        <p>this website is a re-creation of the <a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher</a> at the end of the book that explains just who stole Horace's birthday feast (only when decoded correctly of course 😉).</p>
+      </div>
+    </div>
+  </div>
+   <!-- end AI slop -->
   <script src="./decoder.js"></script>
 </body>
 </html>

@@ -44,11 +44,32 @@ const clickHandler = (event) => {
   message.innerHTML = decodeMessage(guess);
 };
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("button:not(.info__btn):not(.info__close)");
 const message = document.querySelector("[data-message]");
 
-buttons.forEach((button) => {
-  button.addEventListener("click", clickHandler);
-});
-
+buttons.forEach((button) => button.addEventListener("click", clickHandler));
 message.innerHTML = codedMessage;
+
+// begin AI slop
+const modal = document.querySelector(".info__modal");
+const infoBtn = document.querySelector(".info__btn");
+const closeBtn = document.querySelector(".info__close");
+const backdrop = document.querySelector("[data-backdrop]");
+
+function showInfo() {
+  modal.setAttribute("aria-hidden", "false");
+  closeBtn.focus(); // poor man's (or bot's) focus trap
+}
+
+function hideInfo() {
+  modal.setAttribute("aria-hidden", "true");
+}
+
+infoBtn.addEventListener("click", showInfo);
+closeBtn.addEventListener("click", hideInfo);
+backdrop.addEventListener("click", hideInfo);
+
+// close on ESC
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") hideInfo();
+});

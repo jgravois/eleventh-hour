@@ -5,3 +5,61 @@ body {
 button {
   font-size: 120px;
 }
+
+/* begin AI slop */
+.info__modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.info__modal[aria-hidden="false"] {
+  display: flex;
+}
+
+.info__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(2px);
+}
+
+.info__panel {
+  position: relative;
+  background: #fff;
+  max-width: 90vw;
+  width: 520px;
+  margin: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transform: translateY(-8px);
+  transition: transform 180ms ease, opacity 180ms ease;
+  z-index: 2;
+}
+
+.info__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.info__content h2 {
+  margin: 0 0 0.5rem 0;
+}
+
+.info__btn {
+  background-color: #fff;
+  border: 0;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 24px;
+  padding: 10px;
+}
