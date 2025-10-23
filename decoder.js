@@ -29,17 +29,18 @@ const decodeMessage = (suspect) => {
 };
 
 const clickHandler = (event) => {
-  message.innerHTML = decodeMessage(guess);
+  message.innerHTML = decodeMessage(event.target.id);
 
   if (event.target.id.charAt(0) !== "k") {
-    alert("they are not the thief.");
+    alert("not me!");
     return;
   }
   
   const guess = prompt("type the guest's name").toLowerCase();
-  if (guess === event.target.id) {
-    alert("you've solved the mystery!");
-  }
+  const response = guess === event.target.id
+    ? "you've solved the mystery!"
+    : "that's not my name"
+  alert(response);
 };
 
 const buttons = document.querySelectorAll("button:not(.info__btn):not(.info__close)");
