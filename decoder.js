@@ -39,7 +39,7 @@ const clickHandler = (event) => {
   const guess = prompt("type the guest's name").toLowerCase();
   const response = guess === event.target.id
     ? "you've solved the mystery!"
-    : "that's not my name"
+    : "that's not my name."
   alert(response);
 };
 
